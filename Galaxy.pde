@@ -41,7 +41,7 @@ void killStars() {
     int killRadius = blackHole.getDiameter() / 2;
     if (Math.abs(temp.getPositionX() - blackHole.getPositionX()) < killRadius && 
       Math.abs(temp.getPositionY() - blackHole.getPositionY()) < killRadius) {
-        blackHole.eat(temp);
+        // blackHole.eat(temp);
         toBeRemoved.add(star.getKey());
     }
   }
@@ -64,7 +64,13 @@ void moveStars() {
 
 void generateStar() {
   Star randomStar = new Star(starCounter++);
-  randomStar.setSpeed((int) random(50) - 25, (int) random(50) - 25);
+  randomStar.setSpeed(20,0);
+  stars.put(randomStar.getId(), randomStar);
+}
+
+void generateRandomStar() {
+  Star randomStar = new Star(starCounter++);
+  randomStar.setSpeed((int) random(80) - 40, (int) random(80) - 40);
   stars.put(randomStar.getId(), randomStar);
 }
 
@@ -87,6 +93,8 @@ void keyPressed() {
     blackHole.disappear();
   } else if (key == 'c') {
     stars.clear();
+  } else if (key == 'r') {
+    generateRandomStar();
   } else if (key == 's') {
     generateStar();
   }

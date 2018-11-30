@@ -1,6 +1,6 @@
 class Star extends CelestialBody{
   
-  public static final float SPEED_MULTIPLIER = 0.3;
+  public static final float SPEED_MULTIPLIER = 0.5;
   private Integer id;
   private float speedX;
   private float speedY;  

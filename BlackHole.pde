@@ -1,7 +1,10 @@
 class BlackHole extends CelestialBody {
+  
+  private final int initialMass;
 
   BlackHole(int mass, int diameter) {
     super(mass, diameter, width / 2, height / 2, color(200, 10, 10));
+    this.initialMass = mass;
   }
 
   void eat(Star star) {
@@ -15,7 +18,7 @@ class BlackHole extends CelestialBody {
   }
 
   void decreaseMass() {
-    if (mass > 1) {
+    if (this.mass > this.initialMass) {
       this.mass--; 
       this.diameter--;
     }
